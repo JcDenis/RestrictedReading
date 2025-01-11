@@ -35,7 +35,7 @@ class Prepend extends Process
 
         // Add post status
         if (App::status()->post()->set(
-            (new Status(My::POST_STATUS , My::id(), 'Restricted reading', 'Restricted reading (>1)', My::icons()[0])),
+            (new Status(My::POST_STATUS , My::id(), 'Restricted reading', 'Restricted reading (>1)', My::fileURL('icon.svg'))),
         )) {
             App::behavior()->addBehaviors([
                 'coreBlogBeforeGetPostsAddingParameters' => self::coreBlogBeforeGetPostsAddingParameters(...),
