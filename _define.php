@@ -17,7 +17,7 @@ $this->registerModule(
     'Restricted reading',
     'Show some entries to registred users only',
     'Jean-Christian Denis and Contributors',
-    '0.0.1',
+    '0.1',
     [
         'requires'    => [['core', '2.33']],
         'permissions' => 'My',
