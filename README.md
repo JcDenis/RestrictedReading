@@ -1,10 +1,10 @@
 # README
 
-[![Release](https://img.shields.io/github/v/release/jcdenis/RestrictedReading?color=lightblue)](https://git.dotclear.watch/JcDenis/RestrictedReading/releases)
+[![Release](https://img.shields.io/github/v/release/jcdenis/RestrictedReading?color=lightblue)](https://github.com/JcDenis/RestrictedReading/releases)
 ![Date](https://img.shields.io/github/release-date/jcdenis/RestrictedReading?color=red)
 [![Dotclear](https://img.shields.io/badge/dotclear-v2.33-137bbb.svg)](https://fr.dotclear.org/download)
 [![Dotaddict](https://img.shields.io/badge/dotaddict-official-9ac123.svg)](https://plugins.dotaddict.org/dc2/details/RestrictedReading)
-[![License](https://img.shields.io/github/license/jcdenis/RestrictedReading?color=white)](https://git.dotclear.watch/JcDenis/RestrictedReading/src/branch/master/LICENSE)
+[![License](https://img.shields.io/github/license/jcdenis/RestrictedReading?color=white)](https://github.com/JcDenis/RestrictedReading/src/branch/master/LICENSE)
 
 ## ABOUT
 
@@ -30,10 +30,10 @@ Now only registered users with right can read these posts.
 
 ## LINKS
 
-* [License](https://git.dotclear.watch/JcDenis/RestrictedReading/src/branch/master/LICENSE)
-* [Packages & details](https://git.dotclear.watch/JcDenis/RestrictedReading/releases) (or on [Dotaddict](https://plugins.dotaddict.org/dc2/details/RestrictedReading))
-* [Sources & contributions](https://git.dotclear.watch/JcDenis/RestrictedReading) (or on [GitHub](https://github.com/JcDenis/RestrictedReading))
-* [Issues & security](https://git.dotclear.watch/JcDenis/RestrictedReading/issues) (or on [GitHub](https://github.com/JcDenis/RestrictedReading/issues))
+* [License](https://github.com/JcDenis/RestrictedReading/src/branch/master/LICENSE)
+* [Packages & details](https://github.com/JcDenis/RestrictedReading/releases) (or on [Dotaddict](https://plugins.dotaddict.org/dc2/details/RestrictedReading))
+* [Sources & contributions](https://github.com/JcDenis/RestrictedReading)
+* [Issues & security](https://github.com/JcDenis/RestrictedReading/issues)
 
 ## CONTRIBUTORS
 
