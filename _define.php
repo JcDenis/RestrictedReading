@@ -17,9 +17,13 @@ $this->registerModule(
     'Restricted reading',
     'Show some entries to registred users only',
     'Jean-Christian Denis and Contributors',
-    '0.1.1',
+    '0.2',
     [
-        'requires'    => [['core', '2.33']],
+        'requires'    => [
+            ['core', '2.34'],
+            ['FrontendSession', '0.18'],
+        ],
+        'settings'    => ['blog' => '#params.' . $this->id . '_params'],
         'permissions' => 'My',
         'type'        => 'plugin',
         'support'     => 'https://github.com/JcDenis/' . $this->id . '/issues',

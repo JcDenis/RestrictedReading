@@ -14,8 +14,9 @@ _RestrictedReading_ is a plugin for the open-source web publishing software call
 
 ## REQUIREMENTS
 
-* Dotclear 2.33
+* Dotclear 2.34
 * PHP 8.1+
+* Plugin FrontendSession 0.18
 
 ## USAGE
 
@@ -25,6 +26,7 @@ Dotaddict repository. (See Dotclear's documentation to know how do this)
 Once installed :
 1) Change post status to _Restricted reading_.
 2) Add _Restricted reading_ permission to users.
+3) Plugin options can be set from _blog preferences_
 
 Now only registered users with right can read these posts.
 
