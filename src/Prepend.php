@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\RestrictedReading;
 
-use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\PostType;
 use Dotclear\Core\Process;
 use Dotclear\Helper\Stack\Status;
 
 /**
- * @brief       The module prepend process.
+ * @brief       RestrictedReading module prepend process.
  * @ingroup     RestrictedReading
  *
  * @author      Jean-Christian Denis (latest)
@@ -21,6 +19,8 @@ class Prepend extends Process
 {
     public static function init(): bool
     {
+        __('Restricted reading', 'Restricted reading (>1)');
+
         return self::status(My::checkContext(My::PREPEND));
     }
 
@@ -30,43 +30,18 @@ class Prepend extends Process
             return false;
         }
 
-        // Add "Posts subscriber" user permission
-        App::auth()->setPermissionType(My::USER_PERMISSION, __('Restricted reading'));
+        // Add "Restricted reading" user permission
+        App::auth()->setPermissionType(My::id(), My::name());
 
         // Add post status
-        if (App::status()->post()->set(
-            (new Status(My::POST_STATUS , My::id(), 'Restricted reading', 'Restricted reading (>1)', My::fileURL('icon.svg'))),
-        )) {
-            App::behavior()->addBehaviors([
-                'coreBlogBeforeGetPostsAddingParameters' => self::coreBlogBeforeGetPostsAddingParameters(...),
-            ]);
+        $status = App::status()->post()->set(new Status(
+            My::POST_STATUS ,
+            My::id(),
+            'Restricted reading',
+            'Restricted reading (>1)',
+            My::fileURL('icon.svg'))
+        );
 
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
-     * Add signin post status.
-     * 
-     * This adds post marked with status _Restricted reading_ 
-     * to Frontend if user is loggued and has _Restricted reading_ right.
-     *
-     * @param   ArrayObject<string, mixed>     $params     Parameters
-     */
-    public static function coreBlogBeforeGetPostsAddingParameters(ArrayObject $params, string|null $arg = null): void
-    {
-        if (App::task()->checkContext('FRONTEND') && App::auth()->check(My::USER_PERMISSION, App::blog()->id()) === true) {
-            if (!isset($params['post_status'])) {
-                $params['post_status'] = [];
-            }
-            if (!is_array($params['post_status'])) {
-                $params['post_status'] = [$params['post_status']];
-            }
-
-            //$params['post_status'][] = App::status()->post()::PUBLISHED;
-            $params['post_status'][] = My::POST_STATUS;
-        }
+        return $status;
     }
 }

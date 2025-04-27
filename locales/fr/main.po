@@ -1,16 +1,40 @@
+# Language: Français
+# Module: RestrictedReading - 0.2
+# Date: 2025-04-27 11:44:07
+# Author: , contact@jcdenis.fr
+# Translated with translater 2025.03.03
+
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
-"Project-Id-Version: RestrictedReading 0.1\n"
+"Project-Id-Version: RestrictedReading 0.2\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-01-11T10:10:10+00:00\n"
+"PO-Revision-Date: 2025-04-27T11:44:07+00:00\n"
 "Last-Translator: Jean-Christian Denis\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#: src/Backend.php:53
+msgid "Add user permission for restricted reading on sign up"
+msgstr "Ajouter la permission pour la lecture limitée lors de l'inscription d'un utilisateur"
+
+#: src/Backend.php:59
+msgid "Show excerpt instead of hiding entire post"
+msgstr "Afficher le résumé au lieu de cacher le billet entier"
+
+#: src/Backend.php:66
+msgid "Text to display instead of post content:"
+msgstr "Texte a afficher à la place du contenu du billet :"
+
+#: src/Frontend.php:57
+msgid "You have access to restricted reading."
+msgstr "Vous avez accès aux lectures limitées."
+
+#: src/Prepend.php:22
 msgid "Restricted reading"
 msgid_plural "Restricted reading (>1)"
 msgstr[0] "Lecture limitée"
 msgstr[1] "Lectures limitées"
+

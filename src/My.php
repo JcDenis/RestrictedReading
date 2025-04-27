@@ -8,7 +8,7 @@ use Dotclear\App;
 use Dotclear\Module\MyPlugin;
 
 /**
- * @brief       The module helper.
+ * @brief       RestrictedReading module helper.
  * @ingroup     RestrictedReading
  *
  * @author      Jean-Christian Denis (latest)
@@ -16,6 +16,5 @@ use Dotclear\Module\MyPlugin;
  */
 class My extends MyPlugin
 {
-    public const USER_PERMISSION = 'RestrictedReading';
-    public const POST_STATUS     = -150;
+    public const POST_STATUS = -150;
 }
