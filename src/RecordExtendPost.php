@@ -27,6 +27,6 @@ class RecordExtendPost
      */
     public static function getContent(MetaRecord $rs, $absolute_urls = false): string
     {
-        return My::settings()->get('post_content');
+        return ((int) $rs->f('post_status')) == My::POST_STATUS ? My::settings()->get('post_content') : PostPublic::getContent($rs, $absolute_urls);
     }
 }
