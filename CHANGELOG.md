@@ -1,3 +1,9 @@
+RestrictedReading 0.2.1 - 2025.05.02
+===========================================================
+* Require Dotclear 2.34
+* Require PHP 8.1
+* Fix non restricted content
+
 RestrictedReading 0.2 - 2025.04.27
 ===========================================================
 * Require Dotclear 2.34
