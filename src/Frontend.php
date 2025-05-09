@@ -49,7 +49,7 @@ class Frontend extends Process
                     $rs->extend(RecordExtendPost::class);
                 }
             },
-            'publicFrontendSessionPage' => function (): void {
+            'FrontendSessionPage' => function (): void {
                 if (App::auth()->check(My::id(), App::blog()->id())) {
                     echo (new Para())
                         ->items([
