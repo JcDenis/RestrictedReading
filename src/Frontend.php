@@ -7,9 +7,9 @@ namespace Dotclear\Plugin\RestrictedReading;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Process;
-use Dotclear\Database\Cursor;
-use Dotclear\Database\MetaRecord;
-use Dotclear\Helper\Html\Form\{ Para, Text };
+use Dotclear\Database\{ Cursor, MetaRecord };
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Plugin\FrontendSession\FrontendSessionProfil;
 
 /**
  * @brief       RestrictedReading module frontend process.
@@ -49,14 +49,11 @@ class Frontend extends Process
                     $rs->extend(RecordExtendPost::class);
                 }
             },
-            'FrontendSessionPage' => function (): void {
+            'FrontendSessionProfil' => function (FrontendSessionProfil $profil): void {
                 if (App::auth()->check(My::id(), App::blog()->id())) {
-                    echo (new Para())
-                        ->items([
-                            (new Text('h3', My::name())),
-                            (new Text('p', __('You have access to restricted reading.'))),
-                        ])
-                        ->render();
+                    $profil->addAction(My::id(), My::name(), [
+                        (new Text('p', __('You have access to restricted reading.'))),
+                    ]);
                 }
             },
             'FrontendSessionAfterSignup' => function (Cursor $cur): void {
