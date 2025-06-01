@@ -1,3 +1,7 @@
+RestrictedReading 0.4 - 2025.06.02
+===========================================================
+* Bump FrontendSession from 0.23 to 0.28
+
 RestrictedReading 0.3 - 2025.05.09
 ===========================================================
 * Bump FrontendSession from 0.18 to 0.23
