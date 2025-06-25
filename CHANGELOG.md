@@ -1,3 +1,7 @@
+RestrictedReading 0.5 - 2025.06.26
+===========================================================
+* Standardize backend blocs
+
 RestrictedReading 0.4 - 2025.06.02
 ===========================================================
 * Bump FrontendSession from 0.23 to 0.28
