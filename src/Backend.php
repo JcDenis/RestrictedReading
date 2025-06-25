@@ -7,7 +7,7 @@ namespace Dotclear\Plugin\RestrictedReading;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Process;
-use Dotclear\Helper\Html\Form\{ Checkbox, Div, Label, Para, Text, Textarea };
+use Dotclear\Helper\Html\Form\{ Checkbox, Div, Fieldset, Img, Label, Legend, Para, Textarea };
 use Dotclear\Helper\Html\Html;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 
@@ -41,11 +41,9 @@ class Backend extends Process
                 }
             },
             'adminBlogPreferencesFormV2'  => function (BlogSettingsInterface $blog_settings): void {
-                echo (new Div())
-                    ->class('fieldset')
+                echo (new Fieldset(My::id() . '_params'))
+                    ->legend(new Legend((new Img(My::icons()[0]))->class('icon-small')->render() . ' ' . My::name()))
                     ->items([
-                        (new Text('h4', My::name()))
-                            ->id(My::id() . '_params'),
                         (new Para())
                             ->items([
                                 (new Checkbox(My::id() . 'signup_perm', (bool) $blog_settings->get(My::id())->get('signup_perm')))
