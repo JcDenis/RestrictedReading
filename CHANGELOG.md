@@ -1,3 +1,8 @@
+RestrictedReading 0.6 - 2025.09.09
+===========================================================
+* Bump Dotclear from 2.28 to 2.36
+* Use TraitProcess
+
 RestrictedReading 0.5 - 2025.06.26
 ===========================================================
 * Standardize backend blocs

@@ -17,11 +17,11 @@ $this->registerModule(
     'Restricted reading',
     'Show some entries to registred users only',
     'Jean-Christian Denis and Contributors',
-    '0.5',
+    '0.6',
     [
         'requires'    => [
             ['core', '2.34'],
-            ['FrontendSession', '0.28'],
+            ['FrontendSession', '0.36'],
         ],
         'settings'    => ['blog' => '#params.' . $this->id . '_params'],
         'permissions' => 'My',
