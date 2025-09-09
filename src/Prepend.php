@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\RestrictedReading;
 
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Stack\Status;
 
 /**
@@ -15,8 +15,10 @@ use Dotclear\Helper\Stack\Status;
  * @author      Jean-Christian Denis (latest)
  * @copyright   GPL-3.0
  */
-class Prepend extends Process
+class Prepend
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         __('Restricted reading', 'Restricted reading (>1)');

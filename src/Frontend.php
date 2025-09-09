@@ -6,7 +6,7 @@ namespace Dotclear\Plugin\RestrictedReading;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Process;
+use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Database\{ Cursor, MetaRecord };
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Plugin\FrontendSession\FrontendSessionProfil;
@@ -18,8 +18,10 @@ use Dotclear\Plugin\FrontendSession\FrontendSessionProfil;
  * @author      Jean-Christian Paul Denis
  * @copyright   AGPL-3.0
  */
-class Frontend extends Process
+class Frontend
 {
+    use TraitProcess;
+
     public static function init(): bool
     {
         return self::status(My::checkContext(My::FRONTEND));
