@@ -2,10 +2,10 @@
 <modules xmlns:da="http://dotaddict.org/da/">
   <module id="RestrictedReading">
     <name>Restricted reading</name>
-    <version>0.5</version>
+    <version>0.6</version>
     <author>Jean-Christian Paul Denis and contributors</author>
     <desc>Show some entries to registred users only.</desc>
-    <file>https://github.com/JcDenis/RestrictedReading/releases/download/v0.5/plugin-RestrictedReading.zip</file>
+    <file>https://github.com/JcDenis/RestrictedReading/releases/download/v0.6/plugin-RestrictedReading.zip</file>
     <da:dcmin>2.34</da:dcmin>
     <da:details>https://github.com/JcDenis/RestrictedReading/src/branch/master/README.md</da:details>
     <da:support>https://github.com/JcDenis/RestrictedReading/issues</da:support>
