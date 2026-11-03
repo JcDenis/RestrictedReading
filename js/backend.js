@@ -1,10 +1,10 @@
-/*global $, dotclear, jsToolBar */
+/*global $, dotclear */
 'use strict';
 
 $(() => {
-  if (typeof jsToolBar === 'function') {
+  if (typeof dotclear.ToolBar === 'function') {
     $('#RestrictedReadingpost_content').each(function () {
-      const RestrictedReadingJsToolBar = new jsToolBar(this);
+      const RestrictedReadingJsToolBar = new dotclear.ToolBar(this);
       RestrictedReadingJsToolBar.draw('xhtml');
     });
   }
