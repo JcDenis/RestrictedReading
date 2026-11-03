@@ -35,7 +35,7 @@ class Frontend
 
         App::behavior()->addBehaviors([
             'coreBlogBeforeGetPostsAddingParameters' => function (ArrayObject $params, string|null $arg = null): void {
-                if (My::settings()->get('post_trunk') || App::auth()->check(My::id(), App::blog()->id()) === true) {
+                if (My::settings()->getBool('post_trunk') || App::auth()->check(My::id(), App::blog()->id())) {
                     if (!isset($params['post_status'])) {
                         $params['post_status'] = [];
                     }
@@ -47,7 +47,8 @@ class Frontend
                 }
             },
             'coreBlogGetPosts' => function (MetaRecord $rs): void {
-                if (My::settings()->get('post_trunk') && App::auth()->check(My::id(), App::blog()->id()) !== true) {
+                if (My::settings()->getBool('post_trunk') && !App::auth()->check(My::id(), App::blog()->id())) {
+                    RecordExtendPost::$brother_extensions = $rs->extensions();
                     $rs->extend(RecordExtendPost::class);
                 }
             },
@@ -59,11 +60,12 @@ class Frontend
                 }
             },
             'FrontendSessionAfterSignup' => function (Cursor $cur): void {
-                if (My::settings()->get('signup_perm')) {
-                    $perms = App::users()->getUserPermissions($cur->user_id);
-                    $perms = $perms[App::blog()->id()]['p'] ?? [];
-                    $perms[My::id()]  = true;
-                    App::auth()->sudo([App::users(), 'setUserBlogPermissions'], $cur->user_id, App::blog()->id(), $perms);
+                $user_id = is_string($user_id = $cur->getField('user_id')) ? $user_id : '';
+                if ($user_id !== '' && My::settings()->getBool('signup_perm')) {
+                    $perms           = App::users()->getUserPermissions($user_id);
+                    $perms           = $perms[App::blog()->id()]['p'] ?? [];
+                    $perms[My::id()] = true;
+                    App::auth()->sudo(App::users()->setUserBlogPermissions(...), $user_id, App::blog()->id(), $perms);
                 }
             },
         ]);
