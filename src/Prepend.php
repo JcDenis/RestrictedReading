@@ -36,14 +36,12 @@ class Prepend
         App::auth()->setPermissionType(My::id(), My::name());
 
         // Add post status
-        $status = App::status()->post()->set(new Status(
-            My::POST_STATUS ,
+        return App::status()->post()->set(new Status(
+            My::POST_STATUS,
             My::id(),
             'Restricted reading',
             'Restricted reading (>1)',
-            My::fileURL('icon.svg'))
-        );
-
-        return $status;
+            My::fileURL('icon.svg')
+        ));
     }
 }

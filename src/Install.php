@@ -33,7 +33,7 @@ class Install
         try {
             My::settings()->put('signup_perm', true, 'boolean', 'Add user permission to retricted reading on sign up', false, true);
             My::settings()->put('post_trunk', false, 'boolean', 'Show posts excerpts instead of hiding them', false, true);
-            My::settings()->put('post_content', "This article is reserved to registered user. You must be logged in to your account.", 'text', 'Text to display instead of post content', false, true);
+            My::settings()->put('post_content', 'This article is reserved to registered user. You must be logged in to your account.', 'string', 'Text to display instead of post content', false, true);
 
             return true;
         } catch (Exception $e) {

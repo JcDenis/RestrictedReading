@@ -7,10 +7,9 @@ namespace Dotclear\Plugin\RestrictedReading;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Helper\Process\TraitProcess;
-use Dotclear\Helper\Html\Form\{ Checkbox, Div, Fieldset, Img, Label, Legend, Para, Textarea };
+use Dotclear\Helper\Html\Form\{ Checkbox, Fieldset, Img, Label, Legend, Para, Textarea };
 use Dotclear\Helper\Html\Html;
 use Dotclear\Interface\Core\BlogSettingsInterface;
-
 
 /**
  * @brief       RestrictedReading module backend process.
@@ -48,19 +47,19 @@ class Backend
                     ->items([
                         (new Para())
                             ->items([
-                                (new Checkbox(My::id() . 'signup_perm', (bool) $blog_settings->get(My::id())->get('signup_perm')))
+                                (new Checkbox(My::id() . 'signup_perm', (bool) $blog_settings->get(My::id())->getBool('signup_perm')))
                                     ->value(1)
                                     ->label(new Label(__('Add user permission for restricted reading on sign up'), Label::IL_FT)),
                             ]),
                         (new Para())
                             ->items([
-                                (new Checkbox(My::id() . 'post_trunk', (bool) $blog_settings->get(My::id())->get('post_trunk')))
+                                (new Checkbox(My::id() . 'post_trunk', (bool) $blog_settings->get(My::id())->getBool('post_trunk')))
                                     ->value(1)
                                     ->label(new Label(__('Show excerpt instead of hiding entire post'), Label::IL_FT)),
                             ]),
                         (new Para())
                             ->items([
-                                (new Textarea(My::id() . 'post_content', Html::escapeHTML((string) ($blog_settings->get(My::id())->get('post_content')))))
+                                (new Textarea(My::id() . 'post_content', Html::escapeHTML((string) $blog_settings->get(My::id())->getStr('post_content'))))
                                     ->rows(6)
                                     ->class('maximal')
                                     ->label((new Label(__('Text to display instead of post content:'), Label::OL_TF))),
@@ -71,7 +70,7 @@ class Backend
             'adminBeforeBlogSettingsUpdate' => function (BlogSettingsInterface $blog_settings): void {
                 $blog_settings->get(My::id())->put('signup_perm', !empty($_POST[My::id() . 'signup_perm']));
                 $blog_settings->get(My::id())->put('post_trunk', !empty($_POST[My::id() . 'post_trunk']));
-                $blog_settings->get(My::id())->put('post_content', (string) $_POST[My::id() . 'post_content']);
+                $blog_settings->get(My::id())->put('post_content', isset($_POST[My::id() . 'post_content']) && is_string($_POST[My::id() . 'post_content']) ? $_POST[My::id() . 'post_content'] : '');
             },
         ]);
 
