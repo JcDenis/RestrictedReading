@@ -41,7 +41,7 @@ class Prepend
             My::id(),
             'Restricted reading',
             'Restricted reading (>1)',
-            My::fileURL('icon.svg')
+            My::statusIcon('icon.svg')
         ));
     }
 }

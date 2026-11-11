@@ -60,7 +60,7 @@ class Frontend
                 }
             },
             'FrontendSessionAfterSignup' => function (Cursor $cur): void {
-                $user_id = is_string($user_id = $cur->getField('user_id')) ? $user_id : '';
+                $user_id = $cur->strField('user_id');
                 if ($user_id !== '' && My::settings()->getBool('signup_perm')) {
                     $perms           = App::users()->getUserPermissions($user_id);
                     $perms           = $perms[App::blog()->id()]['p'] ?? [];

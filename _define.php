@@ -24,7 +24,7 @@ $this->registerModule(
     '0.7',
     [
         'requires'    => [
-            ['core', '2.39'],
+            ['core', '2.40'],
             ['FrontendSession', '0.42'],
         ],
         'settings'    => ['blog' => '#params.' . $this->id . '_params'],
