@@ -1,3 +1,9 @@
+RestrictedReading 0.8 - 2026.11.11
+===========================================================
+* Fix DA URLs
+* Add Claude to contributors
+* Bump Dotclear from 2.39 to 2.40
+
 RestrictedReading 0.7 - 2026.11.05
 ===========================================================
 * Bump Dotclear from 2.36 to 2.39 and FrontendSession from 0.34 to 0.42
