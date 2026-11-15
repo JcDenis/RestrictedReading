@@ -42,7 +42,11 @@ class Frontend
                 }
                 if (My::settings()->getBool('post_trunk') || $allowed) {
                     if (!isset($params['post_status'])) {
-                        $params['post_status'] = [];
+                        // Without status, preview mode gives all statuses, others give published ones
+                        if (App::frontend()->context()->preview) {
+                            return;
+                        }
+                        $params['post_status'] = [App::status()->post()::PUBLISHED];
                     }
                     if (!is_array($params['post_status'])) {
                         $params['post_status'] = [$params['post_status']];
