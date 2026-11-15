@@ -7,7 +7,7 @@ namespace Dotclear\Plugin\RestrictedReading;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Helper\Process\TraitProcess;
-use Dotclear\Helper\Html\Form\{ Checkbox, Fieldset, Img, Label, Legend, Para, Textarea };
+use Dotclear\Helper\Html\Form\{ Checkbox, Fieldset, Img, Label, Legend, Note, Para, Textarea };
 use Dotclear\Helper\Html\Html;
 use Dotclear\Interface\Core\BlogSettingsInterface;
 
@@ -55,7 +55,7 @@ class Backend
                             ->items([
                                 (new Checkbox(My::id() . 'post_trunk', (bool) $blog_settings->get(My::id())->getBool('post_trunk')))
                                     ->value(1)
-                                    ->label(new Label(__('Show excerpt instead of hiding entire post'), Label::IL_FT)),
+                                    ->label(new Label(__('Show restricted entries to everyone, with the text below instead of their content'), Label::IL_FT)),
                             ]),
                         (new Para())
                             ->items([
@@ -64,6 +64,9 @@ class Backend
                                     ->class('maximal')
                                     ->label((new Label(__('Text to display instead of post content:'), Label::OL_TF))),
                             ]),
+                        (new Note())
+                            ->class('form-note')
+                            ->text(__('Title, excerpt, date, author and category of restricted entries stay visible. Comments are only shown to allowed users. Without this option, restricted entries are hidden from other visitors.')),
                     ])
                     ->render();
             },

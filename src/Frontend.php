@@ -9,7 +9,7 @@ use Dotclear\App;
 use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Database\{ Cursor, MetaRecord };
 use Dotclear\Helper\Html\Form\Text;
-use Dotclear\Plugin\FrontendSession\FrontendSessionProfil;
+use Dotclear\Plugin\FrontendSession\{ CommentOptions, FrontendSessionProfil };
 
 /**
  * @brief       RestrictedReading module frontend process.
@@ -35,7 +35,12 @@ class Frontend
 
         App::behavior()->addBehaviors([
             'coreBlogBeforeGetPostsAddingParameters' => function (ArrayObject $params, string|null $arg = null): void {
-                if (My::settings()->getBool('post_trunk') || App::auth()->check(My::id(), App::blog()->id())) {
+                $allowed = App::auth()->check(My::id(), App::blog()->id());
+                // Comments of restricted entries are for allowed users only
+                if (!$allowed && self::fromGetComments()) {
+                    return;
+                }
+                if (My::settings()->getBool('post_trunk') || $allowed) {
                     if (!isset($params['post_status'])) {
                         $params['post_status'] = [];
                     }
@@ -50,6 +55,14 @@ class Frontend
                 if (My::settings()->getBool('post_trunk') && !App::auth()->check(My::id(), App::blog()->id())) {
                     RecordExtendPost::$brother_extensions = $rs->extensions();
                     $rs->extend(RecordExtendPost::class);
+                }
+            },
+            'FrontendSessionCommentsActive' => function (CommentOptions $option): void {
+                if (App::auth()->check(My::id(), App::blog()->id())) {
+                    return;
+                }
+                if ($option->rs instanceof MetaRecord && $option->rs->intField('post_status') === My::POST_STATUS) {
+                    $option->setActive(false);
                 }
             },
             'FrontendSessionProfil' => function (FrontendSessionProfil $profil): void {
@@ -71,5 +84,21 @@ class Frontend
         ]);
 
         return true;
+    }
+
+    /**
+     * Check if posts parameters are for a comments query.
+     *
+     * Behavior coreBlogBeforeGetPostsAddingParameters does not say it.
+     */
+    private static function fromGetComments(): bool
+    {
+        foreach (debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 10) as $trace) {
+            if ($trace['function'] === 'getComments') {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

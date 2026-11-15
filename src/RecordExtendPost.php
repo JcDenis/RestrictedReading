@@ -46,4 +46,20 @@ class RecordExtendPost
 
         return is_string($res) ? $res : '';
     }
+
+    public static function trackbacksActive(MetaRecord $rs): bool
+    {
+        return $rs->intField('post_status') !== My::POST_STATUS && (bool) self::brother('trackbacksActive', $rs);
+    }
+
+    /**
+     * Call previous extension method, or core one.
+     */
+    private static function brother(string $method, MetaRecord $rs): mixed
+    {
+        $ext  = static::$brother_extensions;
+        $func = isset($ext[$method]) && is_callable($ext[$method]) ? $ext[$method] : [PostPublic::class, $method];
+
+        return is_callable($func) ? call_user_func($func, $rs) : false;
+    }
 }
