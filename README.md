@@ -12,6 +12,8 @@ _RestrictedReading_ is a plugin for the open-source web publishing software call
 
 > Show some entries to registered users only.
 
+A [user guide in French](https://github.com/JcDenis/RestrictedReading/blob/master/docs/fr/utilisation.md) is available.
+
 ## REQUIREMENTS
 
 * Dotclear 2.40
@@ -32,6 +34,7 @@ Now only registered users with right can read these posts.
 
 ## LINKS
 
+* [User guide (in French)](https://github.com/JcDenis/RestrictedReading/blob/master/docs/fr/utilisation.md)
 * [License](https://github.com/JcDenis/RestrictedReading/blob/master/LICENSE)
 * [Packages & details](https://github.com/JcDenis/RestrictedReading/releases) (or on [Repository](https://dotclear.org/plugin/detail/RestrictedReading))
 * [Sources & contributions](https://github.com/JcDenis/RestrictedReading)
