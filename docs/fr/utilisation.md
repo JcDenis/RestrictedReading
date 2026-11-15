@@ -43,19 +43,19 @@ Une fois connecté, le lecteur retrouve la mention « Vous avez accès aux lectu
 1. Allez dans « Paramètres du blog ».
 2. Ouvrez « Paramètres des plugins pour ce blog ».
 3. Dans la section « Lecture limitée », réglez :
-   * « Ajouter la permission pour la lecture limitée lors de l'inscription d'un utilisateur » : cochée par défaut. Toute personne qui s'inscrit reçoit aussitôt la permission.
-   * « Afficher le résumé au lieu de cacher le billet entier » : voir ci-dessous.
-   * « Texte a afficher à la place du contenu du billet : » : le message montré aux visiteurs sans accès.
+   * « Donner la permission de lecture limitée aux utilisateurs lors de leur inscription » : cochée par défaut. Toute personne qui s'inscrit reçoit aussitôt la permission.
+   * « Montrer les billets réservés à tous, avec le texte ci-dessous à la place de leur contenu » : voir ci-dessous.
+   * « Texte à afficher à la place du contenu du billet : » : le message montré aux visiteurs sans accès.
 4. Enregistrez.
 
 ![Réglages du plugin](img/reglages-blog.png)
 
 ## Ce que voient les visiteurs
 
-Cela dépend de la case « Afficher le résumé au lieu de cacher le billet entier ».
+Cela dépend de la case « Montrer les billets réservés à tous, avec le texte ci-dessous à la place de leur contenu ».
 
 * Case décochée : le billet est invisible pour un visiteur sans la permission. Il n'est pas dans les listes, et son adresse affiche « Document non trouvé ».
-* Case cochée : le titre du billet reste visible, dans les listes comme sur sa page. Son contenu est remplacé par le texte que vous avez saisi.
+* Case cochée : le titre, l'extrait, la date, l'auteur et la catégorie du billet restent visibles, dans les listes comme sur sa page. Son contenu est remplacé par le texte que vous avez saisi. Ses commentaires sont cachés, et on ne peut ni commenter ni envoyer de rétrolien.
 
 ![Un visiteur non connecté devant un billet réservé](img/visiteur-billet.png)
 
@@ -63,7 +63,6 @@ Un lecteur qui a la permission voit toujours le billet en entier.
 
 ## Bon à savoir
 
-* Cette case ne montre pas le résumé du billet : elle montre le texte de remplacement. Le résumé reste caché.
-* Les commentaires d'un billet réservé restent visibles pour les visiteurs, avec le formulaire pour en ajouter. Le flux des commentaires les publie aussi.
+* Le texte de remplacement proposé à l'installation est en anglais : remplacez-le par le vôtre dans les réglages du blog.
 * Les flux du blog (Atom et RSS) affichent le texte de remplacement pour un billet réservé quand la case est cochée.
-* Seul le contenu est remplacé : la catégorie, la date, l'auteur et le nombre de commentaires du billet réservé restent affichés.
+* Les commentaires d'un billet réservé ne sont montrés qu'aux lecteurs qui ont la permission, y compris dans les listes et les flux de commentaires.
