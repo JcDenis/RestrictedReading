@@ -21,7 +21,7 @@ $this->registerModule(
     'Restricted reading',
     'Show some entries to registered users only',
     'Jean-Christian Denis and Contributors',
-    '0.9',
+    '0.9.1',
     [
         'requires'    => [
             ['core', '2.40'],
@@ -33,6 +33,6 @@ $this->registerModule(
         'support'     => 'https://github.com/JcDenis/' . $this->id . '/issues',
         'details'     => 'https://github.com/JcDenis/' . $this->id . '/',
         'repository'  => 'https://raw.githubusercontent.com/JcDenis/' . $this->id . '/master/dcstore.xml',
-        'date'        => '2026-11-15T14:04:38+00:00',
+        'date'        => '2026-11-15T14:23:30+00:00',
     ]
 );

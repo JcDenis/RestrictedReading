@@ -1,3 +1,7 @@
+RestrictedReading 0.9.1 - 2026.11.15
+===========================================================
+* [fix] Do not limit to restricted entries when no status is asked
+
 RestrictedReading 0.9 - 2026.11.15
 ===========================================================
 * [fix] Hide comments of restricted entries from not allowed users, explicit option label
