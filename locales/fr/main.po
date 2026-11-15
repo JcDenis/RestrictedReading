@@ -18,15 +18,15 @@ msgstr ""
 
 #: src/Backend.php:53
 msgid "Add user permission for restricted reading on sign up"
-msgstr "Ajouter la permission pour la lecture limitée lors de l'inscription d'un utilisateur"
+msgstr "Donner la permission de lecture limitée aux utilisateurs lors de leur inscription"
 
 #: src/Backend.php:59
-msgid "Show excerpt instead of hiding entire post"
-msgstr "Afficher le résumé au lieu de cacher le billet entier"
+msgid "Show restricted entries to everyone, with the text below instead of their content"
+msgstr "Montrer les billets réservés à tous, avec le texte ci-dessous à la place de leur contenu"
 
 #: src/Backend.php:66
 msgid "Text to display instead of post content:"
-msgstr "Texte a afficher à la place du contenu du billet :"
+msgstr "Texte à afficher à la place du contenu du billet :"
 
 #: src/Frontend.php:57
 msgid "You have access to restricted reading."
@@ -38,3 +38,6 @@ msgid_plural "Restricted reading (>1)"
 msgstr[0] "Lecture limitée"
 msgstr[1] "Lectures limitées"
 
+
+msgid "Title, excerpt, date, author and category of restricted entries stay visible. Comments are only shown to allowed users. Without this option, restricted entries are hidden from other visitors."
+msgstr "Le titre, l'extrait, la date, l'auteur et la catégorie des billets réservés restent visibles. Les commentaires ne sont montrés qu'aux utilisateurs autorisés. Sans cette option, les billets réservés sont cachés aux autres visiteurs."
