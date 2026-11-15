@@ -1,3 +1,9 @@
+RestrictedReading 0.9 - 2026.11.15
+===========================================================
+* [fix] Hide comments of restricted entries from not allowed users, explicit option label
+* [lang] French typos and new note
+* [docs] Add a user guide in French, with screenshots
+
 RestrictedReading 0.8 - 2026.11.11
 ===========================================================
 * Fix DA URLs
