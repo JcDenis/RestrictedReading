@@ -9,7 +9,7 @@ The rules below take precedence for this module.
 
 ## Module
 
-Show some entries to registred users only.
+Show some entries to registered users only.
 
 No admin page. Public side: behaviors.
 
@@ -24,11 +24,13 @@ Required Dotclear and PHP versions: see `_define.php`.
 * `src/Prepend.php`: loaded on every request: autoload, URL handlers, permission types.
 * `src/RecordExtendPost.php`: module posts record extension.
 * `js/`: `backend.js`.
-* Behaviors used: `adminBlogPreferencesHeaders`, `adminPostEditorTags`, `adminBlogPreferencesFormV2`, `adminBeforeBlogSettingsUpdate`, `coreBlogBeforeGetPostsAddingParameters`, `coreBlogGetPosts`.
+* Behaviors used: `adminBlogPreferencesHeaders`, `adminPostEditorTags`, `adminBlogPreferencesFormV2`, `adminBeforeBlogSettingsUpdate`, `coreBlogBeforeGetPostsAddingParameters`, `coreBlogGetPosts`, `FrontendSessionCommentsActive`, `FrontendSessionProfil`, `FrontendSessionAfterSignup`.
 * Requires FrontendSession (`requires` in `_define.php`).
 
 ## Pitfalls
 
+* `coreBlogBeforeGetPostsAddingParameters` is also called for comments queries: comments of restricted entries must stay hidden from not allowed users (`Frontend::fromGetComments()`).
+* Comments activation goes through FrontendSession behavior `FrontendSessionCommentsActive`, not a `commentsActive()` record extension.
 * CI installs FrontendSession from the author's repositories, then from franck-paul's.
 
 ## Testing

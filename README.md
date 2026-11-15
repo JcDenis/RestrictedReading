@@ -10,7 +10,7 @@
 
 _RestrictedReading_ is a plugin for the open-source web publishing software called [Dotclear](https://www.dotclear.org).
 
-> Show some entries to registred users only.
+> Show some entries to registered users only.
 
 ## REQUIREMENTS
 

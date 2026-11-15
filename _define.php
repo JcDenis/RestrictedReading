@@ -19,7 +19,7 @@ if (!isset($this) || !is_object($this) || !method_exists($this, 'registerModule'
 
 $this->registerModule(
     'Restricted reading',
-    'Show some entries to registred users only',
+    'Show some entries to registered users only',
     'Jean-Christian Denis and Contributors',
     '0.8',
     [
